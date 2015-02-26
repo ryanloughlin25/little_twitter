@@ -1,10 +1,15 @@
 
 <div class= "login" >
-  <p>I am in the login index</p>
-  <form action="/" method="post">
-    <input type="text" name="user[:username]" id="">
-    <input type="text" name = "user[:email]">
-    <input type="text" name = "user[:password]">
-    <input type="submit" value= "Login">
-  </form>
+  <% if current_user %>
+    <p>Welcome <%= current_user %> | <a href="/signout">Signout</a></p>
+  <% else %>
+    <p>I am in the login index</p>
+    <form action="/" method="POST">
+      <input type="text" name="user[username]" placeholder="Username">
+      <input type="password" name = "user[password]" placeholder="Password">
+      <input type="submit" value= "login">
+    </form>
+    <% end %>
 </div>
+
+
