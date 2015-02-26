@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :followerships, :source => "follower"
 
   has_many :followeeships, :foreign_key =>"follower_id", :class_name => "Followership"
-  has_many :followees, through: :followeeships, :source => "followee"
+  has_many :followees, through: :followeeships, :source => "user"
 
 
   def password
