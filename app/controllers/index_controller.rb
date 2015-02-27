@@ -3,6 +3,13 @@ get '/' do
   erb :index
 end
 
+# get list of users
+get '/users' do
+  @users = User.all
+  erb :users_list
+end
+
+
 #-------- sessions -------------
 
 
