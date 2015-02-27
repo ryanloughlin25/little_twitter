@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
   include BCrypt
   has_many :tweets
-  has_many :followerships, :foreign_key =>"user_id", :class_name => "Followership"
-  has_many :followers, through: :followerships, :source => "follower"
+  has_many :follower_relationships, :foreign_key =>"followed_id", :class_name => "Followership"
+  has_many :followers, through: :follower_relationships, :source => "follower"
 
-  has_many :followeeships, :foreign_key =>"follower_id", :class_name => "Followership"
-  has_many :followees, through: :followeeships, :source => "user"
+  has_many :followed_relationships, :foreign_key =>"follower_id", :class_name => "Followership"
+  has_many :followings, through: :followed_relationships, :source => "followed"
 
 
   def password
