@@ -12,8 +12,8 @@ end
 
 post '/sessions' do
   #sign-in
-  @user = User.find(params[:user])
-  if @user.password == params[:password]
+  @user = User.find_by(username: params[:user][:username])
+  if @user.password == params[:user][:password]
     session[:user_id] = @user.id
     redirect '/'
   else
