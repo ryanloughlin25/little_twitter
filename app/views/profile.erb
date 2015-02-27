@@ -1,6 +1,8 @@
 <h1><%= @user.username %></h1>
 
-<button><a href="#">Follow</a></button>
+<form action='/users/follow/<%= @user.id %>' method='post'>
+  <input type='submit' value='Follow'>
+</form>
 
 <form action='/users/<%= @user.id%>/tweets' method='post'>
 
