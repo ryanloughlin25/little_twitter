@@ -1,0 +1,12 @@
+
+<div class= "sign_in" >
+<% if current_user %>
+    <p>Welcome <%= current_user %> | <a href="/sessions/<%= current_user.id %>">Signout</a></p>
+    <% else %>
+    <%= erb :signin %>
+    <%= erb :signup %>
+    <% end %>
+    <p>this will be the profile page</p>
+</div>
+
+
