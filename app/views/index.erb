@@ -1,15 +1,12 @@
 
-<div class= "login" >
-  <% if current_user %>
-    <p>Welcome <%= current_user %> | <a href="/signout">Signout</a></p>
-  <% else %>
-    <p>I am in the login index</p>
-    <form action="/" method="POST">
-      <input type="text" name="user[username]" placeholder="Username">
-      <input type="password" name = "user[password]" placeholder="Password">
-      <input type="submit" value= "login">
-    </form>
+<div class= "sign_in" >
+<% if current_user %>
+    <p>Welcome <%= current_user %> | <a href="/sessions/<%= current_user.id %>">Signout</a></p>
+    <% else %>
+    <%= erb :signin %>
+    <%= erb :signup %>
     <% end %>
+    <p>this will be the profile page</p>
 </div>
 
 
