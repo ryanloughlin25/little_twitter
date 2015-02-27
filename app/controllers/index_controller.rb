@@ -67,3 +67,8 @@ get '/logout' do
   session.clear
   redirect '/'
 end
+
+post '/users/follow/:id' do
+  Followership.find_or_create_by(followed_id: params[:id], follower_id: current_user.id)
+  redirect "/users/#{params[:id]}"
+end

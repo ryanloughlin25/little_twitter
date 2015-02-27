@@ -3,18 +3,22 @@
 
 <h1><%= @user.username %></h1>
 
-<button><a href="#">Follow</a></button>
+<form action='/users/follow/<%= @user.id %>' method='post'>
+  <input type='submit' value='Follow'>
+</form>
+
 
 </div>
 
 <div class="tweet_section">
-  <form action='/users/<%= @user.id%>/tweets' method='post'>
+  <% if current_user.id == @user.id %>
+    <form action='/users/<%= @user.id%>/tweets' method='post'>
 
-    <input type='text' name='content' placeholder='Post a Tweet' id='tweet_field'>
-    <input type='submit' value='Submit' style='visibility: hidden;'>
+      <input type='text' name='content' placeholder='Post a Tweet' id='tweet_field'>
+      <input type='submit' value='Submit' style='visibility: hidden;'>
 
-  </form>
-
+    </form>
+  <% end %>
 
   <ul>
     <h1>Your Tweets</h1>
