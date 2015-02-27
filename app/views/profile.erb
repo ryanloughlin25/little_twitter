@@ -1,18 +1,27 @@
+<div class="profile_banner">
+
+
 <h1><%= @user.username %></h1>
 
 <button><a href="#">Follow</a></button>
 
-<form action='/users/<%= @user.id%>/tweets' method='post'>
+</div>
 
-  <input type='text' name='content' placeholder='Post a Tweet' id='tweet_field'>
-  <input type='submit' value='Submit' style='visibility: hidden;'>
+<div class="tweet_section">
+  <form action='/users/<%= @user.id%>/tweets' method='post'>
 
-</form>
+    <input type='text' name='content' placeholder='Post a Tweet' id='tweet_field'>
+    <input type='submit' value='Submit' style='visibility: hidden;'>
+
+  </form>
 
 
-<ul>
-  <% @user_tweets.each do |tweet| %>
-  <li><%=tweet.content%> </li>
-  <% end %>
+  <ul>
+    <h1>Your Tweets</h1>
+    <% @user_tweets.each do |tweet| %>
+    <li><span class="tweet_date"><%= tweet.created_at.strftime("%B %d, %Y")%></span> - <%=tweet.content%> </li>
+    <% end %>
 
-</ul>
+  </ul>
+
+</div>

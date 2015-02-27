@@ -15,9 +15,10 @@
 <body>
   <div class="nav_bar">
     <ul>
-      <li id="home_nav_bar">Little Twitter</li>
+      <li id="home_nav_bar"><a href="/"><img src="../imgs/house.png"> Little Twitter</a></li>
     <% if current_user %>
-      <li id="users_nav_bar"><a href="/users">Other Users</a></li>
+      <li id="users_nav_bar"><a href="/users"><img src="../imgs/users.png"> View Users</a></li>
+      <li id="users_nav_bar"><a href="/users/<%=@user.id%>"><img src="../imgs/userself.png"> Your Profile</a></li>
       <li id="logout_nav_bar"><a href="/logout">Signout</a></li>
     <% end%>
     </ul>
