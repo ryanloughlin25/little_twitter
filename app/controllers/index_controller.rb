@@ -5,10 +5,6 @@ end
 
 #-------- sessions -------------
 
-# get '/sessions/new' do
-#   #render sign-in page
-#   erb :signin
-# end # dont need because partial is on erb index
 
 post '/' do
   #sign-in
@@ -20,12 +16,6 @@ post '/' do
     redirect '/sessions/new'
   end
 end
-
-# get '/sessions' do
-
-#   erb :index
-# end
-
 
 
 #--- sign-up ---#
@@ -54,9 +44,7 @@ get '/users/:id' do
   erb  :profile
 end
 
-# get '/users/:id/tweets/new' do
-#   erb :profile
-# end
+
 
 post '/users/:id/tweets' do
   @user = User.find(params[:id])
