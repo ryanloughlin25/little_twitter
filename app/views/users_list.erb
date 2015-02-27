@@ -1,7 +1,7 @@
 <div class = "users_list">
   <h3>Get a friend </h3>
   <% @users.each do |user| %>
-  <li><%= user.username %></li>
+  <li><a href="/users/<%= user.id %>"><%= user.username %></a></li>
   <% end %>
 
 </div>
