@@ -1,22 +1,31 @@
+<div class="profile_banner">
+
+
 <h1><%= @user.username %></h1>
 
 <form action='/users/follow/<%= @user.id %>' method='post'>
   <input type='submit' value='Follow'>
 </form>
 
-<% if current_user.id == @user.id %>
-  <form action='/users/<%= @user.id%>/tweets' method='post'>
 
-    <input type='text' name='content' placeholder='Post a Tweet' id='tweet_field'>
-    <input type='submit' value='Submit' style='visibility: hidden;'>
+</div>
 
-  </form>
-<% end %>
+<div class="tweet_section">
+  <% if current_user.id == @user.id %>
+    <form action='/users/<%= @user.id%>/tweets' method='post'>
 
+      <input type='text' name='content' placeholder='Post a Tweet' id='tweet_field'>
+      <input type='submit' value='Submit' style='visibility: hidden;'>
 
-<ul>
-  <% @user_tweets.each do |tweet| %>
-  <li><%=tweet.content%> </li>
+    </form>
   <% end %>
 
-</ul>
+  <ul>
+    <h1>Your Tweets</h1>
+    <% @user_tweets.each do |tweet| %>
+    <li><span class="tweet_date"><%= tweet.created_at.strftime("%B %d, %Y")%></span> - <%=tweet.content%> </li>
+    <% end %>
+
+  </ul>
+
+</div>

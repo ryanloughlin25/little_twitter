@@ -1,7 +1,8 @@
 
+
 <div class= "sign_in" >
 <% if current_user %>
-    <p>Welcome <%= current_user.username %> | <a href="/logout">Signout</a></p>
+    <p>Welcome <%= current_user.username %></p>
     <% else %>
     <%= erb :signin %>
     <%= erb :signup %>
