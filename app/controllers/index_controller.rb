@@ -45,8 +45,27 @@ post '/users' do
 
   if user.save
     session[:user_id] = user.id
-    redirect ("/")
+    redirect "/"
   else
     redirect '/signup'
   end
+end
+
+#-------- profile -------------#
+
+get '/users/:id' do
+  @user = User.find(params[:id])
+  @user_tweets = @user.tweets.sort
+  erb  :profile
+end
+
+# get '/users/:id/tweets/new' do
+#   erb :profile
+# end
+
+post '/users/:id/tweets' do
+  @user = User.find(params[:id])
+  @user.tweets.create(content: params[:content])
+  # tweet = Tweet.create(content: params[:content])
+  redirect "/users/#{params[:id]}"
 end
