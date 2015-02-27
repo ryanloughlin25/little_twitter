@@ -4,12 +4,14 @@
   <input type='submit' value='Follow'>
 </form>
 
-<form action='/users/<%= @user.id%>/tweets' method='post'>
+<% if current_user.id == @user.id %>
+  <form action='/users/<%= @user.id%>/tweets' method='post'>
 
-  <input type='text' name='content' placeholder='Post a Tweet' id='tweet_field'>
-  <input type='submit' value='Submit' style='visibility: hidden;'>
+    <input type='text' name='content' placeholder='Post a Tweet' id='tweet_field'>
+    <input type='submit' value='Submit' style='visibility: hidden;'>
 
-</form>
+  </form>
+<% end %>
 
 
 <ul>
