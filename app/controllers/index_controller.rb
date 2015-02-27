@@ -5,12 +5,12 @@ end
 
 #-------- sessions -------------
 
-get '/sessions/new' do
-  #render sign-in page
-  erb :signin
-end
+# get '/sessions/new' do
+#   #render sign-in page
+#   erb :signin
+# end # dont need because partial is on erb index
 
-post '/sessions' do
+post '/' do
   #sign-in
   @user = User.find_by(username: params[:user][:username])
   if @user.password == params[:user][:password]
@@ -21,16 +21,11 @@ post '/sessions' do
   end
 end
 
-get '/sessions' do
+# get '/sessions' do
 
-  erb :index
-end
+#   erb :index
+# end
 
-get '/sessions/:id' do
-#sign-out
-  session.clear
-  redirect '/'
-end
 
 
 #--- sign-up ---#
@@ -68,4 +63,12 @@ post '/users/:id/tweets' do
   @user.tweets.create(content: params[:content])
   # tweet = Tweet.create(content: params[:content])
   redirect "/users/#{params[:id]}"
+end
+
+
+# --- logout / sign out
+get '/logout' do
+#sign-out
+  session.clear
+  redirect '/'
 end
