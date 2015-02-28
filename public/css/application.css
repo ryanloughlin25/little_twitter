@@ -65,7 +65,22 @@ body {
 }
 
 .tweet_section {
-  margin-left: 50px;
+  width:600px;
+  float: left;
+  padding:10px;
+}
+
+#profile_header {
+  color: #450DA7;
+}
+
+#nav {
+    line-height:30px;
+    height:500px;
+    width:300px;
+    float:right;
+    padding:5px;
+    margin: 150px;
 }
 
 /*-----------button------------*/
