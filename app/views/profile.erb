@@ -3,10 +3,11 @@
 
 <h1><%= @user.username %></h1>
 
-<form action='/users/follow/<%= @user.id %>' method='post'>
-  <input type='submit' value='Follow'>
-</form>
-
+<% unless current_user.id == @user.id %>
+  <form action='/users/follow/<%= @user.id %>' method='post'>
+    <input type='submit' value='Follow'>
+  </form>
+<% end %>
 
 </div>
 
