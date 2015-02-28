@@ -3,12 +3,9 @@
 
 <h1><%= @user.username %></h1>
 
-<button class ="btn"><a class="btn_text" href="#">Follow</a></button>
-
 <% unless current_user.id == @user.id %>
-  <form action='/users/follow/<%= @user.id %>' method='post'>
-    <input type='submit' value='Follow'>
-  </form>
+  <form action='/users/follow/<%= @user.id %>' method='post' id="follow"></form>
+  <button class ="btn" type="submit" form="follow">Follow</button>
 <% end %>
 
 </div>
