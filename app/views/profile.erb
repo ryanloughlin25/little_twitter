@@ -4,8 +4,15 @@
 <h1 id="profile_name"><%= @user.username %></h1>
 
 <% unless current_user.id == @user.id %>
-  <form action='/users/follow/<%= @user.id %>' method='post' id="follow"></form>
-  <button class ="btn" type="submit" form="follow">Follow</button>
+  <% if @following %>
+    <form action='/users/unfollow/<%= @user.id %>' method='post' id="unfollow">
+      <input type="hidden" name="_method" value="delete">
+    </form>
+    <button class ="btn" type="submit" form="unfollow">Unfollow</button>
+  <% else  %>
+    <form action='/users/follow/<%= @user.id %>' method='post' id="follow"></form>
+    <button class ="btn" type="submit" form="follow">Follow</button>
+  <% end %>
 <% end %>
 
 </div>

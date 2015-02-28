@@ -48,6 +48,7 @@ end
 get '/users/:id' do
   @user = User.find(params[:id])
   @user_tweets = @user.tweets.sort
+  @following = @user.followers.include?(current_user)
   erb  :profile
 end
 
@@ -68,7 +69,13 @@ get '/logout' do
   redirect '/'
 end
 
+# --- follow ---
 post '/users/follow/:id' do
   Followership.find_or_create_by(followed_id: params[:id], follower_id: current_user.id)
+  redirect "/users/#{params[:id]}"
+end
+
+delete '/users/unfollow/:id' do
+  Followership.find_by(followed_id: params[:id], follower_id: current_user.id).delete
   redirect "/users/#{params[:id]}"
 end
