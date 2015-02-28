@@ -1,24 +1,27 @@
 <div class="profile_banner">
 
 
-<h1><%= @user.username %></h1>
+<h1 id="profile_name"><%= @user.username %></h1>
 
-<form action='/users/follow/<%= @user.id %>' method='post'>
-  <input type='submit' value='Follow'>
-</form>
-
+<% unless current_user.id == @user.id %>
+  <form action='/users/follow/<%= @user.id %>' method='post' id="follow"></form>
+  <button class ="btn" type="submit" form="follow">Follow</button>
+<% end %>
 
 </div>
 
 <div class="tweet_section">
-  <% if current_user.id == @user.id %>
-    <form action='/users/<%= @user.id%>/tweets' method='post'>
+<% if current_user.id == @user.id %>
+  <div class="tweet_box">
+  <form action='/users/<%= @user.id%>/tweets' method='post'>
 
-      <input type='text' name='content' placeholder='Post a Tweet' id='tweet_field'>
-      <input type='submit' value='Submit' style='visibility: hidden;'>
+    <input class="textbox" type='text' name='content' placeholder='Post a Tweet' id='tweet_field'>
+    <input type='submit' value='Submit' style='visibility: hidden;'>
 
-    </form>
-  <% end %>
+  </form>
+  </div>
+<% end %>
+<table>
 
   <ul>
     <h1>Tweets</h1>
@@ -27,5 +30,9 @@
     <% end %>
 
   </ul>
+</table>
+
+  <%= erb :followers %>
+  <%= erb :followings %>
 
 </div>

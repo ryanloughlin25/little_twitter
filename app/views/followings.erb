@@ -1,0 +1,8 @@
+<div>
+  <h3>Followings</h3>
+  <ul>
+    <% @user.followings.each do |followed| %>
+      <li><%= followed.username %></li>
+    <% end %>
+  </ul>
+</div>

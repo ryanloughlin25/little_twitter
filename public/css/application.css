@@ -1,12 +1,22 @@
-#tweet_field {
-  margin-top: 30px;
-  width: 400px;
-  line-height: 3em;
-}
-
 body {
   font-family: 'Ubuntu', sans-serif;
 }
+
+
+#tweet_field {
+  margin-top: 30px;
+  width: 900px;
+  line-height: 3em;
+}
+
+/*tweet field */
+
+.textbox {
+  padding: 10px;
+  border: solid 1px #dcdcdc;
+  transition: box-shadow 0.3s, border 0.3s;
+}
+
 
 /*----------Nav Bar-----------*/
 
@@ -37,10 +47,15 @@ body {
   color: white;
 }
 
+.nav_bar a:hover {
+  color: #7645CA;
+}
+
 /*----------Profile Page-----------*/
 .profile_banner {
   background-image: url("../imgs/profile_background.jpg");
   background-size: 600px;
+  opacity: 0.9;
   height: 300px;
   text-align: center;
 }
@@ -49,15 +64,36 @@ body {
   margin-top: 0px;
 }
 
-button a:link {
-  text-decoration: none;
-  color: #261758;
-}
-
 .tweet_section {
-  margin: 0 auto;
+  margin-left: 50px;
 }
 
+/*-----------button------------*/
+.btn {
+  background: #450DA7;
+  background-image: -webkit-linear-gradient(top, #450DA7, #936BD8);
+  background-image: -moz-linear-gradient(top, #450DA7, #936BD8);
+  background-image: -ms-linear-gradient(top, #450DA7, #936BD8);
+  background-image: -o-linear-gradient(top, #450DA7, #936BD8);
+  background-image: linear-gradient(to bottom, #450DA7, #936BD8);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn_text {
+  color: white;
+  text-decoration: none;
+}
 
 
 /*----------TABLE for USERS/LOGIN/REGISTER-----------*/
