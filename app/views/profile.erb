@@ -1,7 +1,7 @@
 <div class="profile_banner">
 
 
-<h1><%= @user.username %></h1>
+<h1 id="profile_name"><%= @user.username %></h1>
 
 <% unless current_user.id == @user.id %>
   <form action='/users/follow/<%= @user.id %>' method='post' id="follow"></form>
