@@ -1,7 +1,14 @@
 <div class = "users_list">
-  <h3>Get a friend </h3>
-  <% @users.each do |user| %>
-  <li><a href="/users/<%= user.id %>"><%= user.username %></a></li>
-  <% end %>
 
+  <table>
+    <th>Get a friend </th>
+
+    <tr>
+      <% @users.each do |user| %>
+      <td class="<%= user.id %>"><a href="/users/<%= user.id %>"><%= user.username %></a>
+      </td>
+    </tr>
+        <% end %>
+
+</table>
 </div>
