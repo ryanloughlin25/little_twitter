@@ -3,19 +3,22 @@
 
 <h1><%= @user.username %></h1>
 
-<button><a href="#">Follow</a></button>
+<button class ="btn"><a class="btn_text" href="#">Follow</a></button>
 
 </div>
 
 <div class="tweet_section">
+
+  <div class="tweet_box">
   <form action='/users/<%= @user.id%>/tweets' method='post'>
 
-    <input type='text' name='content' placeholder='Post a Tweet' id='tweet_field'>
+    <input class="textbox" type='text' name='content' placeholder='Post a Tweet' id='tweet_field'>
     <input type='submit' value='Submit' style='visibility: hidden;'>
 
   </form>
+  </div>
 
-
+<table>
   <ul>
     <h1>Your Tweets</h1>
     <% @user_tweets.each do |tweet| %>
@@ -23,5 +26,6 @@
     <% end %>
 
   </ul>
+</table>
 
 </div>
