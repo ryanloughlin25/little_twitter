@@ -3,6 +3,8 @@
 
 <h1><%= @user.username %></h1>
 
+<button class ="btn"><a class="btn_text" href="#">Follow</a></button>
+
 <% unless current_user.id == @user.id %>
   <form action='/users/follow/<%= @user.id %>' method='post'>
     <input type='submit' value='Follow'>
@@ -12,6 +14,18 @@
 </div>
 
 <div class="tweet_section">
+
+  <div class="tweet_box">
+  <form action='/users/<%= @user.id%>/tweets' method='post'>
+
+    <input class="textbox" type='text' name='content' placeholder='Post a Tweet' id='tweet_field'>
+    <input type='submit' value='Submit' style='visibility: hidden;'>
+
+  </form>
+  </div>
+
+<table>
+
   <% if current_user.id == @user.id %>
     <form action='/users/<%= @user.id%>/tweets' method='post'>
 
@@ -28,6 +42,7 @@
     <% end %>
 
   </ul>
+</table>
 
   <%= erb :followers %>
   <%= erb :followings %>
