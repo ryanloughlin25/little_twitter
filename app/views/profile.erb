@@ -5,6 +5,12 @@
 
 <button class ="btn"><a class="btn_text" href="#">Follow</a></button>
 
+<% unless current_user.id == @user.id %>
+  <form action='/users/follow/<%= @user.id %>' method='post'>
+    <input type='submit' value='Follow'>
+  </form>
+<% end %>
+
 </div>
 
 <div class="tweet_section">
@@ -19,6 +25,16 @@
   </div>
 
 <table>
+
+  <% if current_user.id == @user.id %>
+    <form action='/users/<%= @user.id%>/tweets' method='post'>
+
+      <input type='text' name='content' placeholder='Post a Tweet' id='tweet_field'>
+      <input type='submit' value='Submit' style='visibility: hidden;'>
+
+    </form>
+  <% end %>
+
   <ul>
     <h1>Your Tweets</h1>
     <% @user_tweets.each do |tweet| %>
@@ -27,5 +43,8 @@
 
   </ul>
 </table>
+
+  <%= erb :followers %>
+  <%= erb :followings %>
 
 </div>
