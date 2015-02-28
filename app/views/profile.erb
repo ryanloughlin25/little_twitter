@@ -29,17 +29,21 @@
   </div>
 <% end %>
 <table>
+  <tr>
 
-  <ul>
-    <h1>Tweets</h1>
+    <h1 id="profile_header">Tweets</h1>
     <% @user_tweets.each do |tweet| %>
-    <li><span class="tweet_date"><%= tweet.created_at.strftime("%B %d, %Y")%></span> - <%=tweet.content%> </li>
+    <td><span class="tweet_date"><%= tweet.created_at.strftime("%B %d, %Y")%></span>----</td>
+      <td> <%=tweet.content%> </td>
+  </tr>
     <% end %>
-
-  </ul>
 </table>
+
+
+</div>
+
+<div id="nav">
 
   <%= erb :followers %>
   <%= erb :followings %>
-
 </div>
