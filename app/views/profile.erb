@@ -24,7 +24,7 @@
 <table>
 
   <ul>
-    <h1>Your Tweets</h1>
+    <h1>Tweets</h1>
     <% @user_tweets.each do |tweet| %>
     <li><span class="tweet_date"><%= tweet.created_at.strftime("%B %d, %Y")%></span> - <%=tweet.content%> </li>
     <% end %>
