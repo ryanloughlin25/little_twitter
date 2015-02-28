@@ -68,6 +68,7 @@ body {
   width:600px;
   float: left;
   padding:10px;
+  padding-left: 100px;
 }
 
 #profile_header {
@@ -178,4 +179,8 @@ h3 {
 #welcome_user {
   text-align: center;
   padding-top: 80px;
+}
+
+#tweet_table {
+  width: 1000px;
 }

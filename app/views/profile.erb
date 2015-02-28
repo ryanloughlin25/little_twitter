@@ -28,12 +28,12 @@
   </form>
   </div>
 <% end %>
-<table>
+<table id="tweet_table">
   <tr>
 
     <h1 id="profile_header">Tweets</h1>
     <% @user_tweets.each do |tweet| %>
-    <td><span class="tweet_date"><%= tweet.created_at.strftime("%B %d, %Y")%></span>----</td>
+    <td><span class="tweet_date"><%= tweet.created_at.strftime("%B %d, %Y")%></span></td>
       <td> <%=tweet.content%> </td>
   </tr>
     <% end %>
